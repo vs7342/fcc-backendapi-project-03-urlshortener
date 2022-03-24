@@ -16,7 +16,7 @@ require('dotenv').config({path: "./config/" + current_env + ".env"});
 const port = process.env.PORT || 3000;
 
 // MongoDB Configuration
-mongoose.connect(proces.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Middlewares
 app.use(bodyParser.urlencoded({extended: false}));
