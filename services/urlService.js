@@ -24,6 +24,10 @@ module.exports.postUrl = (req, res) => {
     let positionOfSlash = original_url.indexOf('://');
     let hostname = original_url.slice(positionOfSlash + 3);
 
+    // Now strip off rest of the string which comes after /
+    positionOfSlash = hostname.indexOf('/');
+    hostname = hostname.substring(0, positionOfSlash);
+
     // Check if the hostname exists using dns.lookup(host, cb)
     dns.lookup(hostname || '', (err, data) => {
 
