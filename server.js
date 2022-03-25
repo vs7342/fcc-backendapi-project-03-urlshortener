@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const dns = require('dns');
 const mongoose = require('mongoose');
 const app = express();
+
+// Services
+const urlService = require('./services/urlService');
 
 // Determine current environment based on 'CURRENT' environment variable
 // CURRENT defaults to dev. Possible values - dev,prod
@@ -32,6 +34,12 @@ app.get('/', function(req, res) {
 app.get('/api/hello', function(req, res) {
   res.json({ greeting: 'hello API' });
 });
+
+// URL Shortener POST
+app.post('/api/shorturl', urlService.postUrl);
+
+// URL Shortener GET
+app.get('/api/shorturl/:id', urlService.getUrl);
 
 app.listen(port, function() {
   console.log(`Listening on port ${port}`);
