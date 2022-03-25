@@ -15,7 +15,7 @@ module.exports.postUrl = (req, res) => {
     let original_url = req.body.url;
 
     // Validate URL format using Regex -  [Regex string obtained from - https://www.geeksforgeeks.org/check-if-an-url-is-valid-or-not-using-regular-expression/]
-    let urlRegex = new RegExp("((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)");
+    let urlRegex = new RegExp("((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=-]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)");
     if(!urlRegex.test(original_url)){
         return res.json(err_response);
     }
