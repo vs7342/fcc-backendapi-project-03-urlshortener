@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 // Defining Schema
 const counterSchema = new Schema({
-    counter: Number
+    shortUrlCounter: Number
 });
 
 // Creating Model from Schema
